@@ -2,9 +2,10 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const App = () => {
+  const basename = import.meta.env.MODE === "production" ? "/Kasa/" : "";
   return (
-    <div className="test">
-      <BrowserRouter>
+    <>
+      <BrowserRouter basename={basename}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -12,7 +13,7 @@ const App = () => {
           {/* <Route path="*" element={<Home />} /> */}
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 
